@@ -2,20 +2,20 @@ import streamlit as st
 import torch
 import tiktoken
 from GPT_Modules import GPT, GPTConfig  # Import your GPT model classes
-from huggingface_hub import hf_hub_download
+# from huggingface_hub import hf_hub_download
 
-# Replace with the repository and file path
-repo_id = "pavanvenkat/GPT124M"
-file_name = "model_19072.pt"  # The specific file you want to download
-file_path = hf_hub_download(repo_id=repo_id, filename=file_name,)
-print(f"File downloaded to: {file_path}")
+# # Replace with the repository and file path
+# repo_id = "pavanvenkat/GPT124M"
+# file_name = "model_19072.pt"  # The specific file you want to download
+# file_path = hf_hub_download(repo_id=repo_id, filename=file_name,)
+# print(f"File downloaded to: {file_path}")
 
 # Set up device and tokenizer
 device = torch.device("cpu")  # Use "cuda" if you have a GPU
 enc = tiktoken.get_encoding("gpt2")
 
 # Load your trained GPT model
-checkpoint_path = file_path  # Adjust this to your model's path
+checkpoint_path = "model_19072.pt"  # Adjust this to your model's path
 checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
 
 # Extract the model state_dict from the checkpoint
