@@ -175,4 +175,3 @@ for step in range(max_steps):
 
 if ddp:
     destroy_process_group()
-

@@ -3,3 +3,6 @@ __pycache__/
 *.pyo
 
 temp.py
+
+log/
+edu_fineweb10B/
