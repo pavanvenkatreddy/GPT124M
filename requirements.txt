@@ -1,3 +1,9 @@
 streamlit
 tiktoken
 huggingface_hub
+torch
+dataclasses
+math
+os
+time
+inspect
