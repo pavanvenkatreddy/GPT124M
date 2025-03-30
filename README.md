@@ -3,7 +3,7 @@ This repository contains my implementation of the GPT-2 architecture from scratc
 
 ---
 
-## 📌 Prerequisites
+## Prerequisites
 
 Before you start, make sure you have:
 
@@ -13,7 +13,7 @@ Before you start, make sure you have:
 
 ---
 
-## 🔧 Step 1: Set Up File System Storage
+## Step 1: Set Up File System Storage
 
 To persist your dataset and model checkpoints across multiple instances, you need a **file system** that can be attached to different nodes.
 
@@ -23,7 +23,7 @@ To persist your dataset and model checkpoints across multiple instances, you nee
 
 ---
 
-## 🔥 Step 2: Launch a Small Instance and Prepare the Dataset
+## Step 2: Launch a Small Instance and Prepare the Dataset
 
 1. **Create a new instance** (any small instance should be fine)
 2. **Attach the file system** created in Step 1
@@ -47,7 +47,7 @@ To persist your dataset and model checkpoints across multiple instances, you nee
 
 ---
 
-## 🚀 Step 3: Launch a High-Performance GPU Instance
+## Step 3: Launch a High-Performance GPU Instance
 
 1. **Create a new instance** with **8xA100 SXM 80GB GPUs**
    - Alternatively, you can train on a **single GPU**, but it will be significantly slower.
@@ -59,7 +59,7 @@ To persist your dataset and model checkpoints across multiple instances, you nee
 
 ---
 
-## 🏗️ Step 4: Train the Model
+## Step 4: Train the Model
 
 Run the training script using PyTorch's distributed training:
 
@@ -82,7 +82,7 @@ This implementation is based on **GPT-2 (124M)**, a **decoder-only Transformer**
 
 ---
 
-## 📤 Step 5: Export the Model
+## Step 5: Export the Model
 
 Once training is complete, export the trained model to your preferred destination.
 
@@ -120,7 +120,7 @@ api.upload_folder(folder_path="path-to-your-trained-model", repo_id="your-huggin
 
 ---
 
-## 📌 Additional Notes
+## Additional Notes
 
 - You can experiment with **different datasets** or **fine-tune this model** using **RLHF** (Reinforcement Learning with Human Feedback).
 - To resume training from a checkpoint, modify `train.py` to load weights from the latest saved model.
@@ -128,7 +128,7 @@ api.upload_folder(folder_path="path-to-your-trained-model", repo_id="your-huggin
 
 ---
 
-## 🔗 Resources
+## Resources
 
 - [Lambda Labs Documentation](https://lambdalabs.com/)
 - [Hugging Face Model Upload Guide](https://huggingface.co/docs/hub/en/upload)
