@@ -69,6 +69,23 @@ torchrun --standalone --nproc_per_node=8 train.py
 
 This will launch training across **all 8 GPUs** using PyTorch's **distributed training** feature.
 
+Alternatively, to run supervised fine-tuning using the [HumanLLMs/Human-Like-DPO-Dataset](https://huggingface.co/datasets/HumanLLMs/Human-Like-DPO-Dataset), you can use the `sft.py` script:
+
+```bash
+python sft.py
+```
+
+The `sft.py` script loads the dataset from Hugging Face and fine-tunes a GPT-2 model using Supervised Fine-Tuning (SFT). You can configure the following parameters directly in the script:
+
+- `file_path`: Path to the pretrained model checkpoint (default: `model_19072.pt`)
+- `bs`: Batch size (default: `4`)
+- `epochs`: Number of training epochs (default: `1`)
+- `lr`: Learning rate (default: `1e-4`)
+
+Make sure to place your model checkpoint at the specified location and adjust parameters as needed before running the script.
+
+---
+
 ### Model Architecture
 
 This implementation is based on **GPT-2 (124M)**, a **decoder-only Transformer** with:
@@ -125,6 +142,7 @@ api.upload_folder(folder_path="path-to-your-trained-model", repo_id="your-huggin
 - You can experiment with **different datasets** or **fine-tune this model** using **RLHF** (Reinforcement Learning with Human Feedback).
 - To resume training from a checkpoint, modify `train.py` to load weights from the latest saved model.
 - The dataset (`FineWeb-Edu10B`) is a subset of **FineWeb**, filtered to focus on educational and high-quality text.
+- The `sft.py` script supports supervised fine-tuning using datasets structured in instruction-response format, making it easy to adapt the model to specific downstream tasks.
 
 ---
 
@@ -133,6 +151,4 @@ api.upload_folder(folder_path="path-to-your-trained-model", repo_id="your-huggin
 - [Lambda Labs Documentation](https://lambdalabs.com/)
 - [Hugging Face Model Upload Guide](https://huggingface.co/docs/hub/en/upload)
 - [Andrej Karpathy’s Zero to Hero Series](https://www.youtube.com/watch?v=kCc8FmEb1nY)
-
----
-
+- [Dataset Collection's for LLM Development at Different Stages](https://github.com/mlabonne/llm-datasets)
